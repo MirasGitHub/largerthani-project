@@ -7,6 +7,7 @@
     --border: #E5E5E5;
     --bg-light: #FEFDFC;
     --font-main: system-ui, Roboto;
+    --primary: #fff;
 }
 
 
@@ -62,6 +63,7 @@
     font-size: 56px;
     line-height: 1.2;
     margin-bottom: 40px;
+    color: var(--off-white);
 }
 
 .hero-actions{
@@ -109,7 +111,123 @@
     opacity: 0.6;
 }
 
+/* ABOUT US */
+.about-us{
+    background-color: var(--bg-light);
+    font-family: var(--font-main);
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    padding: 24px 24px 24px 40px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+}
+
+.about-left{
+    flex: 1;
+    max-width: 608px;
+}
+
+.about-left p{
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--secondary-text);
+    font-family: var(--font-main);
+}
+
+.about-left .btn{
+    display: inline-block;
+    margin-top: 24px;
+}
+
+.about-right{
+    position: relative;
+    flex: 1;
+    min-height: 480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    background: url("../assets/images/video-bg-cover.png") center / cover no-repeat;
+}
+
+/* overlay: #000000 at 40% */
+.about-right::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.about-play{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    padding-left: 4px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    color: var(--primary-text);
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.about-play:hover{
+    opacity: 0.8;
+}
+
+.supporters{
+    margin-top: 40px;
+}
+
+.supporters h3{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--secondary-text);
+}
+
+/* line next to "Our supporters" */
+.supporters h3::after{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--border);
+}
+
+.supporters-logos{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 @media (max-width: 768px){
+    .content{
+        flex-direction: column;
+        padding: 24px;
+        gap: 32px;
+    }
+
+    .about-left h2{
+        font-size: 28px;
+    }
+
+    .about-right{
+        width: 100%;
+        min-height: 280px;
+    }
+
     .hero-section{
         min-height: 520px;
         padding-top: 80px;
