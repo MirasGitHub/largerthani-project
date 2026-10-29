@@ -8,6 +8,7 @@
     --bg-light: #FEFDFC;
     --font-main: system-ui, Roboto;
     --primary: #fff;
+    --bg-yellow: #FCEFC7;
 }
 
 
@@ -126,12 +127,13 @@
     background-color: #FFFFFF;
 }
 
-.about-left{
+/* reusable two-column content: text + media */
+.content-text{
     flex: 1;
     max-width: 608px;
 }
 
-.about-left p{
+.content-text p{
     margin-bottom: 30px;
     font-size: 16px;
     line-height: 1.6;
@@ -139,25 +141,36 @@
     font-family: var(--font-main);
 }
 
-.about-left .btn{
+.content-text .btn{
     display: inline-block;
     margin-top: 24px;
 }
 
-.about-right{
+.content-media{
     position: relative;
-    flex: 1;
-    min-height: 480px;
+    flex: 0 0 480px;
+    height: 658px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.content-media img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-video{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
-    overflow: hidden;
     background: url("../assets/images/video-bg-cover.png") center / cover no-repeat;
 }
 
 /* overlay: #000000 at 40% */
-.about-right::before{
+.about-video::before{
     content: "";
     position: absolute;
     inset: 0;
@@ -212,6 +225,58 @@
     height: auto;
 }
 
+/* WHAT WE DO */
+.what-we-do{
+    background-color: var(--bg-yellow);
+    font-family: var(--font-main);
+}
+
+.what-we-do .content{
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 16px 64px;
+    background-color: transparent;
+}
+
+/* text column matches the image height: h2 on top, services at the bottom */
+.what-we-do .content-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.what-we-do .services{
+    margin-top: auto;
+}
+
+/* title takes a full row, so h2 and image start on the same line */
+.what-we-do .content > .title{
+    flex-basis: 100%;
+}
+
+.what-we-do h2{
+    margin-top: 0;
+}
+
+.services{
+    padding-left: 24px;
+    border-left: 1px solid var(--border);
+}
+
+.services li + li{
+    margin-top: 24px;
+}
+
+.services h3{
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: var(--primary-text);
+}
+
+.services p{
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
 @media (max-width: 768px){
     .content{
         flex-direction: column;
@@ -219,13 +284,14 @@
         gap: 32px;
     }
 
-    .about-left h2{
+    .content-text h2{
         font-size: 28px;
     }
 
-    .about-right{
+    .content-media{
+        flex-basis: auto;
         width: 100%;
-        min-height: 280px;
+        height: 400px;
     }
 
     .hero-section{
